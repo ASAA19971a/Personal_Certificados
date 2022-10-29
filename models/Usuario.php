@@ -27,6 +27,7 @@ class Usuario extends Conectar
                     $_SESSION["usu_nom"] = $resultado["usu_nom"];
                     $_SESSION["usu_ape"] = $resultado["usu_apep"];
                     $_SESSION["usu_correo"] = $resultado["usu_correo"];
+                    $_SESSION["rol_id"] = $resultado["rol_id"];
                     // Si todo esta correcto indexar en Home
                     header("location:" . conectar::ruta() . "view/UsuHome/");
                     exit();

@@ -32,7 +32,7 @@ switch ($_GET["op"]) {
 
         break;
 
-        // MicroServicio para mostrar el listado de cursos de un usuario  TOP10
+        /*  MicroServicio para mostrar el listado de cursos de un usuario  TOP10 */
     case 'listar_cursos_top10':
         $datos = $usuario->get_cursos_x_usuario_top10($_POST["usu_id"]);
         $data = array();
@@ -81,6 +81,8 @@ switch ($_GET["op"]) {
         }
 
         break;
+
+
         //Total de cursos para dashboard
     case "total":
         $datos = $usuario->get_total_cursos_x_usuario($_POST["usu_id"]);
@@ -92,6 +94,7 @@ switch ($_GET["op"]) {
         }
         break;
 
+        //mostrar informacion de usuario x id
     case "mostrar":
         $datos = $usuario->get_usuario_x_id($_POST["usu_id"]);
         if (is_array($datos) == true and count($datos) <> 0) {
@@ -109,6 +112,8 @@ switch ($_GET["op"]) {
         }
 
         break;
+
+        // actualiza usuario
     case "update_perfil":
         $usuario->update_usuario_perfil(
             $_POST["usu_id"],
