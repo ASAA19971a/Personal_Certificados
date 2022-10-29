@@ -5,7 +5,7 @@ $(document).ready(function () {
     { usu_id: usu_id },
     function (data) {
       data = JSON.parse(data);
-      console.log(data);
+      // console.log(data);
       $("#lbltotal").html(data.total);
     }
   );

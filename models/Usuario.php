@@ -149,5 +149,48 @@ class Usuario extends Conectar
         return $resultado = $stmt->fetchAll();
     }
 
-    //
+    // Mostrar informacion usuario por id
+    public function get_usuario_x_id($usu_id)
+    {
+        $conectar = parent::conexion();
+        parent::set_names();
+        $sql = "SELECT * 
+                FROM tm_usuario
+                WHERE usu_id=? 
+                AND est=1;";
+
+        $stmt = $conectar->prepare($sql);
+        $stmt->bindValue(1, $usu_id);
+        $stmt->execute();
+        return $resultado = $stmt->fetchAll();
+    }
+
+    // Actualizar informacion usuario por id
+    public function update_usuario_perfil($usu_id, $usu_nom, $usu_apep, $usu_apem, $usu_pass, $usu_sex, $usu_telf)
+    {
+        $conectar = parent::conexion();
+        parent::set_names();
+        $sql = "UPDATE tm_usuario
+                SET
+                    usu_nom=?,
+                    usu_apep=?,
+                    usu_apem=?,
+                    usu_pass=?,
+                    usu_sex=?,
+                    usu_telf=?
+
+                WHERE 
+                    usu_id=?";
+
+        $stmt = $conectar->prepare($sql);
+        $stmt->bindValue(1, $usu_nom);
+        $stmt->bindValue(2, $usu_apep);
+        $stmt->bindValue(3, $usu_apem);
+        $stmt->bindValue(4, $usu_pass);
+        $stmt->bindValue(5, $usu_sex);
+        $stmt->bindValue(6, $usu_telf);
+        $stmt->bindValue(7, $usu_id);
+        $stmt->execute();
+        return $resultado = $stmt->fetchAll();
+    }
 }
