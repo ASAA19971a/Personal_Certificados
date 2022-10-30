@@ -67,8 +67,7 @@ class Curso extends Conectar
         $conectar = parent::conexion();
         parent::set_names();
         $sql = "SELECT * 
-                FROM tm_curso
-                WHERE cur_id=?";
+                FROM tm_curso";
 
         $stmt = $conectar->prepare($sql);
 

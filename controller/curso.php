@@ -60,7 +60,6 @@ switch ($_GET["op"]) {
             $sub_array = array();
             $sub_array[] = $row["cat_id"];
             $sub_array[] = $row["cur_nom"];
-            $sub_array[] = $row["cur_descrip"];
             $sub_array[] = $row["cur_fechini"];
             $sub_array[] = $row["cur_fechfin"];
             $sub_array[] = $row["inst_id"];
